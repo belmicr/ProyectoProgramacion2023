@@ -7,19 +7,29 @@
 using namespace std;
 
 int main(int argc, char **argv){
-    cout<<"Cantidad de argumentos: "<<argc-1<<endl;
-    for(int i=0; i<argc-1; i++){
-        if(strcmp(argv[i],"-file")==0){
-            cout<<"Nombre del Archivo: "<<argv[i+1]<<endl;
-            i++;
-            break;
+    string archivo= argv[argc-1];
+    cout<<"Archivo: "<<archivo<<endl;
+
+    for(int i=1; i<argc-1; i++) {
+        string arg = argv[i];
+        cout << arg << endl;
+
+        if (arg == "-hola") {
+            cout << "adios";
         }
 
-        cout<<"Argumento "<< i <<":"<<argv[i+1]<<endl;
+        if (arg == "") {
+            cout << "nadis";
+        }
     }
 }
 
-/*  
+/*
+//argc cant de argumentos, argv los argumentos en si, separados por palabras
+//el ultimo argumento es el archivo, y el 0 es el nombre del ejecutable ej. main.exe
+//edit config puedo poner los argumentos que voy a ir probando
+//poner en el working directory la carpeta donde tenemos el archivo para q busque ahi
+
 Estructura para representar un artículo y su stock en un depósito
 struct Articulo {
     std::string nombre;
